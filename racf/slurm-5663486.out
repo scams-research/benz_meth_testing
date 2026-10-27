@@ -1,0 +1,28 @@
+Running script: racf.py
+Traceback (most recent call last):
+  File "/lfs1i3/projects/b35bh/joe_edit/290_M/racf/racf.py", line 17, in <module>
+    mean_tns, std_tns, t_ps_tns = rf.NOW_compute_acf(benzenes, rf.ccom_vector, window_size=window_size, u=u)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lfs1i3/projects/b35bh/joe_edit/290_M/racf/racf_funcs.py", line 69, in NOW_compute_acf
+    for ts in window:
+  File "/home/b35bh/joe3010.b35bh/miniforge3/envs/md/lib/python3.11/site-packages/MDAnalysis/coordinates/base.py", line 214, in __iter__
+    self.trajectory.rewind()
+  File "/home/b35bh/joe3010.b35bh/miniforge3/envs/md/lib/python3.11/site-packages/MDAnalysis/coordinates/base.py", line 724, in rewind
+    self._reopen()
+  File "/home/b35bh/joe3010.b35bh/miniforge3/envs/md/lib/python3.11/site-packages/MDAnalysis/coordinates/LAMMPS.py", line 698, in _reopen
+    self._file = util.anyopen(self.filename)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/b35bh/joe3010.b35bh/miniforge3/envs/md/lib/python3.11/site-packages/MDAnalysis/lib/util.py", line 408, in anyopen
+    stream = _get_stream(datasource, openfunc, mode=mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/b35bh/joe3010.b35bh/miniforge3/envs/md/lib/python3.11/site-packages/MDAnalysis/lib/util.py", line 473, in _get_stream
+    stream.readline()
+  File "/home/b35bh/joe3010.b35bh/miniforge3/envs/md/lib/python3.11/bz2.py", line 176, in read1
+    return self._buffer.read1(size)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/b35bh/joe3010.b35bh/miniforge3/envs/md/lib/python3.11/_compression.py", line 68, in readinto
+    data = self.read(len(byte_view))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/b35bh/joe3010.b35bh/miniforge3/envs/md/lib/python3.11/_compression.py", line 99, in read
+    raise EOFError("Compressed file ended before the "
+EOFError: Compressed file ended before the end-of-stream marker was reached

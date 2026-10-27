@@ -1,0 +1,6 @@
+Running script: racf.py
+Traceback (most recent call last):
+  File "/lfs1i3/projects/b35bh/joe_edit/290_M/racf/racf.py", line 24, in <module>
+    os.makedirs(os.path.dirname(outpath), exist_ok=True)
+  File "<frozen os>", line 225, in makedirs
+FileNotFoundError: [Errno 2] No such file or directory: ''
