@@ -121,19 +121,21 @@ improper_coeff 6 2.500 -1 2
 
 
 # Methanol coeffs
-mass 13 12.011
-mass 14 15.999
-mass 15 1.008
-mass 16 1.008
-mass 17 1.008
-mass 18 1.008
 
-pair_coeff 13 13 0.066 3.5000000 ### change for alt forcs field 
-pair_coeff 14 14 0.170 3.1200000
-pair_coeff 15 15 0.030 2.5000000
-pair_coeff 16 16 0.030 2.5000000
-pair_coeff 17 17 0.030 2.5000000
-pair_coeff 18 18 0.000 0.0000000
+mass 13 12.011 # C 
+mass 14 15.999 # O
+mass 15 1.008 # H
+mass 16 1.008 # H
+mass 17 1.008 # H
+mass 18 1.008 # H(-O)
+
+# pair_coeff (atom_type) (atom_type) (energy units) (distance units)
+pair_coeff 13 13 0.066 3.5000000 # C
+pair_coeff 14 14 0.170 3.1200000 # O
+pair_coeff 15 15 0.030 2.5000000 # H
+pair_coeff 16 16 0.030 2.5000000 # H
+pair_coeff 17 17 0.030 2.5000000 # H
+pair_coeff 18 18 0.000 0.0000000 # H(-O)
 
 bond_coeff 13 320.0000 1.4100
 bond_coeff 14 340.0000 1.0900
