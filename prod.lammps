@@ -109,40 +109,24 @@ improper_coeff 6 2.500 -1 2
 
 
 # Methanol coeffs
-mass 13 12.011
-mass 14 15.999
-mass 15 1.008
-mass 16 1.008
-mass 17 1.008
-mass 18 1.008
 
-pair_coeff 13 13 0.066 3.5000000
-pair_coeff 14 14 0.170 3.1200000
-pair_coeff 15 15 0.030 2.5000000
-pair_coeff 16 16 0.030 2.5000000
-pair_coeff 17 17 0.030 2.5000000
-pair_coeff 18 18 0.000 0.0000000
+mass 13 12.011 1.008 # H 
+mass 14 15.999 # O
+mass 15 15.035 # Me
 
-bond_coeff 13 320.0000 1.4100
-bond_coeff 14 340.0000 1.0900
-bond_coeff 15 340.0000 1.0900
-bond_coeff 16 340.0000 1.0900
-bond_coeff 17 553.0000 0.9450
+# pair_coeff (atom_type) (atom_type) (energy units) (distance units)
+pair_coeff 13 13 0.000000 0.0000000 # H
+pair_coeff 14 14 0.170000 3.0700000 # O
+pair_coeff 15 15 0.207000 3.7750000 # Me
 
-angle_coeff 19 35.000 109.500
-angle_coeff 20 35.000 109.500
-angle_coeff 21 35.000 109.500
-angle_coeff 22 55.000 108.500
-angle_coeff 23 33.000 107.800
-angle_coeff 24 33.000 107.800
-angle_coeff 25 33.000 107.800
+bond_coeff 16 500.0000 0.945
+bond_coeff 17 500.0000 1.430
 
-dihedral_coeff 25 0.000 0.000 0.352 0.000
-dihedral_coeff 26 0.000 0.000 0.352 0.000
-dihedral_coeff 27 0.000 0.000 0.352 0.000
+angle_coeff 18 50.000 108.5
 
-improper_coeff 7 0.000 -1 2
-improper_coeff 8 0.000 -1 2
+group methanol_group type 16 17 18 
+
+fix meth_fix methanol_atom shake 1.0e-6 50 b 16 17 a 18 # insures bonds and angles are rigid for opls-ua jorgensens model of methanol.
 
 
 variable DT equal 1
