@@ -1,0 +1,155 @@
+LAMMPS (22 Jul 2025)
+  using 1 OpenMP thread(s) per MPI task
+# PART A - ENERGY MINIMIZATION
+
+
+# 1) Initialization
+units real
+atom_style full
+bond_style     harmonic
+angle_style    harmonic
+dihedral_style opls
+improper_style cvff
+pair_style lj/cut/coul/long 12
+pair_modify mix geometric
+special_bonds lj/coul 0.0 0.0 0.5
+kspace_style pppm 1e-6
+neighbor        2.0 bin
+neigh_modify
+
+region box block -20 20 -20 20 -20 20
+create_box 15 box bond/types 14 angle/types 19 dihedral/types 24 improper/types 6 extra/bond/per/atom 4 extra/angle/per/atom 10 extra/dihedral/per/atom 20  extra/improper/per/atom 4 extra/special/per/atom 20
+Created orthogonal box = (-20 -20 -20) to (20 20 20)
+  2 by 4 by 4 MPI processor grid
+
+molecule benzene mol_files/benzene.mol
+Read molecule template benzene:
+# beznene molecule. OPLS geometry
+  1 molecules
+  0 fragments
+  0 bodies
+  12 atoms with max type 12
+  12 bonds with max type 12
+  18 angles with max type 18
+  24 dihedrals with max type 24
+  6 impropers with max type 6
+molecule methanol mol_files/methanol.mol toff 12 boff 12 aoff 18 doff 24 ioff 6
+Read molecule template methanol:
+# methanol molecule. OPLS geometry
+  1 molecules
+  0 fragments
+  0 bodies
+  3 atoms with max type 15
+  2 bonds with max type 14
+  1 angles with max type 19
+  0 dihedrals with max type 0
+  0 impropers with max type 0
+create_atoms 0 random 25 34564 NULL mol benzene 25367 overlap 2
+Created 300 atoms
+  using lattice units in orthogonal box = (-20 -20 -20) to (20 20 20)
+  create_atoms CPU = 0.025 seconds
+create_atoms 0 random 475 34564 NULL mol methanol 25367 overlap 2
+Created 1425 atoms
+  using lattice units in orthogonal box = (-20 -20 -20) to (20 20 20)
+  create_atoms CPU = 0.019 seconds
+
+
+# Benzene coeffs
+
+mass 1 12.011
+mass 2 12.011
+mass 3 12.011
+mass 4 12.011
+mass 5 12.011
+mass 6 12.011
+mass 7 1.008
+mass 8 1.008
+mass 9 1.008
+mass 10 1.008
+mass 11 1.008
+mass 12 1.008
+
+pair_coeff 1 1 0.070 3.5500000
+pair_coeff 2 2 0.070 3.5500000
+pair_coeff 3 3 0.070 3.5500000
+pair_coeff 4 4 0.070 3.5500000
+pair_coeff 5 5 0.070 3.5500000
+pair_coeff 6 6 0.070 3.5500000
+pair_coeff 7 7 0.030 2.4200000
+pair_coeff 8 8 0.030 2.4200000
+pair_coeff 9 9 0.030 2.4200000
+pair_coeff 10 10 0.030 2.4200000
+pair_coeff 11 11 0.030 2.4200000
+pair_coeff 12 12 0.030 2.4200000
+
+
+bond_coeff       1   469.0000     1.4000
+bond_coeff       2   469.0000     1.4000
+bond_coeff       3   469.0000     1.4000
+bond_coeff       4   469.0000     1.4000
+bond_coeff       5   469.0000     1.4000
+bond_coeff       6   367.0000     1.0800
+bond_coeff       7   367.0000     1.0800
+bond_coeff       8   367.0000     1.0800
+bond_coeff       9   367.0000     1.0800
+bond_coeff      10   367.0000     1.0800
+bond_coeff      11   367.0000     1.0800
+bond_coeff      12   469.0000     1.4000
+
+angle_coeff 1 63.000 120.000
+angle_coeff 2 63.000 120.000
+angle_coeff 3 63.000 120.000
+angle_coeff 4 63.000 120.000
+angle_coeff 5 35.000 120.000
+angle_coeff 6 35.000 120.000
+angle_coeff 7 35.000 120.000
+angle_coeff 8 35.000 120.000
+angle_coeff 9 35.000 120.000
+angle_coeff 10 35.000 120.000
+angle_coeff 11 35.000 120.000
+angle_coeff 12 35.000 120.000
+angle_coeff 13 35.000 120.000
+angle_coeff 14 35.000 120.000
+angle_coeff 15 63.000 120.000
+angle_coeff 16 35.000 120.000
+angle_coeff 17 63.000 120.000
+angle_coeff 18 35.000 120.000
+
+dihedral_coeff 1 0.000 7.250 0.000 0.000
+dihedral_coeff 2 0.000 7.250 0.000 0.000
+dihedral_coeff 3 0.000 7.250 0.000 0.000
+dihedral_coeff 4 0.000 7.250 0.000 0.000
+dihedral_coeff 5 0.000 7.250 0.000 0.000
+dihedral_coeff 6 0.000 7.250 0.000 0.000
+dihedral_coeff 7 0.000 7.250 0.000 0.000
+dihedral_coeff 8 0.000 7.250 0.000 0.000
+dihedral_coeff 9 0.000 7.250 0.000 0.000
+dihedral_coeff 10 0.000 7.250 0.000 0.000
+dihedral_coeff 11 0.000 7.250 0.000 0.000
+dihedral_coeff 12 0.000 7.250 0.000 0.000
+dihedral_coeff 13 0.000 7.250 0.000 0.000
+dihedral_coeff 14 0.000 7.250 0.000 0.000
+dihedral_coeff 15 0.000 7.250 0.000 0.000
+dihedral_coeff 16 0.000 7.250 0.000 0.000
+dihedral_coeff 17 0.000 7.250 0.000 0.000
+dihedral_coeff 18 0.000 7.250 0.000 0.000
+dihedral_coeff 19 0.000 7.250 0.000 0.000
+dihedral_coeff 20 0.000 7.250 0.000 0.000
+dihedral_coeff 21 0.000 7.250 0.000 0.000
+dihedral_coeff 22 0.000 7.250 0.000 0.000
+dihedral_coeff 23 0.000 7.250 0.000 0.000
+dihedral_coeff 24 0.000 7.250 0.000 0.000
+
+improper_coeff 1 2.500 -1 2
+improper_coeff 2 2.500 -1 2
+improper_coeff 3 2.500 -1 2
+improper_coeff 4 2.500 -1 2
+improper_coeff 5 2.500 -1 2
+improper_coeff 6 2.500 -1 2
+
+
+# Methanol coeffs
+
+mass 13 12.011 1.008 # H
+ERROR: Illegal mass command: expected 2 arguments but found 3 (src/src/input.cpp:1627)
+Last input line: mass 13 12.011 1.008 # H

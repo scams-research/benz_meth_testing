@@ -5,6 +5,8 @@
 #SBATCH --ntasks-per-node=32
 #SBATCH --time=24:00:00
 #SBATCH --constraint=cpu_model:epyc-9655
+#SBATCH --mail-user=cq24260@bristol.ac.uk
+#SBATCH --mail-type=END,FAIL
 
 # load module - not sure it's needed?
 module load pmix
