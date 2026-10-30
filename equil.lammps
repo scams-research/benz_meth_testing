@@ -122,7 +122,7 @@ improper_coeff 6 2.500 -1 2
 
 # Methanol coeffs
 
-mass 13 12.011 1.008 # H 
+mass 13 1.0080 # H 
 mass 14 15.999 # O
 mass 15 15.035 # Me
 
