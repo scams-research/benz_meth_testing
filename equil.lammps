@@ -131,14 +131,14 @@ pair_coeff 13 13 0.000000 0.0000000 # H
 pair_coeff 14 14 0.170000 3.0700000 # O
 pair_coeff 15 15 0.207000 3.7750000 # Me
 
-bond_coeff 16 500.0000 0.945
-bond_coeff 17 500.0000 1.430
+bond_coeff 13 500.0000 0.945
+bond_coeff 14 500.0000 1.430
 
-angle_coeff 18 50.000 108.5
+angle_coeff 19 50.000 108.5
 
-group methanol_group type 16 17 18 
+group methanol_group type 13 14 15 
 
-fix meth_fix methanol_atom shake 1.0e-6 50 b 16 17 a 18
+fix meth_fix methanol_group shake 1.0e-6 50 0 b 13 14 a 19
 
 variable DT equal 1
 variable TDAMP equal 100*${DT}

@@ -4,7 +4,7 @@
 #SBATCH --time=1-00:00:00
 #Sbatch --nodes=1
 #SBATCH --cpus-per-task=1
-#SBATCH --ntasks-per-node=144
+#SBATCH --ntasks-per-node=32
 #SBATCH --cpus-per-task=1
 #SBATCH --exclusive
 
